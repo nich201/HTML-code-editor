@@ -51,6 +51,24 @@
             padding: 0;
             margin: 0;
             display: flex;
+            gap: 20px; /* Space between the nav items */
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #007bff;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0056b3; /* Hover effect to make the link more interactive */
         }
 
         nav ul li h4 {
@@ -153,6 +171,7 @@
         </a>
         <nav>
             <ul>
+                <li><a href="https://github.com/nich201/html-code-editor">View Repository</a></li>
                 <li><h4>Online HTML, CSS, JS Code Editor</h4></li>
             </ul>
         </nav>
