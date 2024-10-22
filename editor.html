@@ -180,6 +180,12 @@
     <script>
         const codeInput = document.getElementById('code');
         const previewFrame = document.getElementById('preview');
+        let isFormDirty = false;
+
+        codeInput.addEventListener('input', () => {
+            isFormDirty = true;
+            runCode();
+        });
 
         const runCode = () => {
             const code = codeInput.value;
@@ -189,7 +195,14 @@
             doc.close();
         };
 
-        codeInput.addEventListener('input', runCode);
+        window.addEventListener('beforeunload', (event) => {
+            if (isFormDirty) {
+                const message = "Changes that you made may not be saved.";
+                event.returnValue = message;
+                return message;
+            }
+        });
+ }
     </script>
 </body>
 </html>
