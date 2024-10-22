@@ -1,0 +1,16 @@
+{
+    "short_name": "NetDig Editor",
+    "name": "NetDig Technologies - Online HTML Code Editor",
+    "icons": [
+        {
+            "src": "https://i.ibb.co/pyVT46M/Your-paragraph-text.png",
+            "sizes": "500x500",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/editor.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007bff",
+    "description": "An online HTML, CSS, and JavaScript code editor."
+}
