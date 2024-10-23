@@ -13,14 +13,12 @@
             height: 100%;
             margin: 0;
         }
-
         body {
             display: flex;
             flex-direction: column;
             font-family: 'League Spartan', sans-serif;
             background-color: #f4f7fa;
         }
-
         header {
             background-color: #ffffff;
             padding: 15px 20px;
@@ -29,24 +27,20 @@
             align-items: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .logo-container {
             display: flex;
             align-items: center;
         }
-
         .logo-container img {
             width: 40px;
             height: 40px;
             margin-right: 10px;
         }
-
         .logo-container h1 {
             font-size: 22px;
             margin: 0;
             color: #000000;
         }
-
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -55,11 +49,9 @@
             gap: 20px;
             align-items: center;
         }
-
         nav ul li {
             margin: 0;
         }
-
         nav ul li a {
             text-decoration: none;
             font-size: 18px;
@@ -67,24 +59,20 @@
             padding: 10px 15px;
             transition: color 0.3s ease;
         }
-
         nav ul li a:hover {
             color: #0056b3;
         }
-
         nav ul li h4 {
             margin: 0;
             color: #007bff;
             font-size: 18px;
         }
-
         main {
             flex: 1;
             display: flex;
             flex-direction: column;
             margin: 20px;
         }
-
         .editor-container {
             display: flex;
             flex: 1;
@@ -92,35 +80,29 @@
             border-radius: 5px;
             overflow: hidden;
         }
-
         .code-editor, .live-preview {
             flex: 1;
             padding: 15px;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-
         .code-editor {
             background-color: #f7f7f7;
             border-right: 1px solid #ccc;
         }
-
         .live-preview {
             background-color: #fff;
         }
-
         .live-preview iframe {
             width: 100%;
             height: 100%;
             border: none;
             border-radius: 5px;
         }
-
         .editor-title {
             font-size: 24px;
             margin-bottom: 10px;
             color: #333;
         }
-
         #code {
             width: 100%;
             height: calc(100% - 40px);
@@ -132,6 +114,22 @@
             font-size: 14px;
             background-color: #f7f7f7;
             padding: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -161,6 +159,7 @@
                 <iframe id="preview"></iframe>
             </div>
         </div>
+        <a id="download-button" class="button" href="#" download="index.html">Download</a>
     </main>
     <script>
         const codeInput = document.getElementById('code');
@@ -179,6 +178,14 @@
             doc.write(code);
             doc.close();
         };
+
+        const downloadButton = document.getElementById('download-button');
+        downloadButton.addEventListener('click', () => {
+            const code = codeInput.value;
+            const blob = new Blob([code], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            downloadButton.href = url;
+        });
 
         window.addEventListener('beforeunload', (event) => {
             if (isFormDirty) {
