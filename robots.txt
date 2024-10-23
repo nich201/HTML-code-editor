@@ -1,6 +1,8 @@
 User-agent: *
 Crawl-delay: 15
-Disallow: /
+Disallow: /html-code-editor/404.html
+Disallow: /html-code-editor/Logo.png
+Disallow: /html-code-editor/Screenshot.png
 
 User-agent: Googlebot
 Crawl-delay: 10
