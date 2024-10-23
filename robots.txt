@@ -18,3 +18,5 @@ Crawl-delay: 10
 
 User-agent: Baiduspider
 Crawl-delay: 15
+
+Sitemap: https://nich201.github.io/html-code-editor/sitemap.xml
